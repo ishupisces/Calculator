@@ -1,17 +1,9 @@
-pipeline {
-  agent any 
-    stages {
-      stage("Compile") {
-        steps {
-          sh "./gradlew build"
-        }
-      }
-      stage("Unit Tests") {
-        steps {
-          sh "./gradlew test"
-        }
-      }
-    }
+node{
+  stage('Build'){
+    sh "./gradlew build"
   }
-
+  stage('Unit Test'){
+    sh "./gradlew test"
+  }
+}
     
